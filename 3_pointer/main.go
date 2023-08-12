@@ -24,9 +24,14 @@ func main() {
 	fmt.Printf("Address of num: %p\n", &num)
 	fmt.Printf("Value of ptr: %p\n", ptr)
 	fmt.Printf("Value pointed by ptr: %d\n", *ptr)
+
 }
 
 // functions
 func ChangeFamily(familyAddress *string, newFamily string) {
 	*familyAddress = newFamily
+}
+
+func add(a, b int, result *int) {
+	*result = a + b
 }
