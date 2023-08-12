@@ -14,6 +14,8 @@ func main() {
 	fmt.Println(family)
 	fmt.Printf("this is address of example: %p \n", &example)
 	fmt.Println("==============================")
+	example = "kirkos"
+	fmt.Println(example)
 
 }
 
