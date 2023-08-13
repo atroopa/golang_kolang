@@ -29,4 +29,22 @@ func main() {
 			fmt.Println(value)
 		}
 	}
+
+	cities := map[string]Vertex{}
+	cities["Tehran"] = Vertex{53.80, 47.70}
+
+	fmt.Println(cities)
+
+	cities["Tehran"] = Vertex{22.34, 91.01}
+
+	elem, ok := cities["Tehran"]
+
+	if ok {
+		fmt.Println(elem)
+	}
+
+}
+
+type Vertex struct {
+	Latitude, Longitude float64
 }
