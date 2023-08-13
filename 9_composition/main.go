@@ -19,7 +19,7 @@ type Player struct {
 // =========main====================
 
 func main() {
-	omid := new(Player)
+	omid := &Player{}
 	omid.Name = "omid"
 	omid.PrintName()
 }
