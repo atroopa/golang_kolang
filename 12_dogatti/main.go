@@ -6,18 +6,30 @@ import (
 
 // types ===============================
 type User struct {
-	FirstName, LastName string
+	Name   string
+	Family string
+	Age    int
+}
+
+type Namer interface {
+	FullName() string
 }
 
 // functions ==================================
-func (u *User) Greeting() string {
-	return fmt.Sprintf("Dear %s %s", u.FirstName, u.LastName)
+func (u *User) FullName() string {
+	return fmt.Sprintf("Dear %s %s", u.Name, u.Family)
+}
+
+func Greeting(namer Namer) string {
+	return fmt.Sprintf("Greeting %s", namer.FullName())
 }
 
 // main  =====================================
 func main() {
 
-	u := &User{"omid", "hajavi"}
-	fmt.Println(u.Greeting())
+	user := &User{"omid", "hajavi", 30}
+	fmt.Println(user.FullName())
+
+	fmt.Println(Greeting(user))
 
 }
