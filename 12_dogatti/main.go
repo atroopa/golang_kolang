@@ -4,32 +4,48 @@ import (
 	"fmt"
 )
 
-// types ===============================
+// types =============================================================
 type User struct {
 	Name   string
 	Family string
 	Age    int
+	ID     int
 }
 
 type Namer interface {
 	FullName() string
 }
 
-// functions ==================================
+type Player struct {
+	User
+	PlayerID int
+}
+
+type Identity interface {
+	GetID() string
+}
+
+// functions =======================================================
 func (u *User) FullName() string {
-	return fmt.Sprintf("Dear %s %s", u.Name, u.Family)
+	return fmt.Sprintf("Dear %s %s \n", u.Name, u.Family)
 }
 
-func Greeting(namer Namer) string {
-	return fmt.Sprintf("Greeting %s", namer.FullName())
+func (u *User) GetID() string {
+	return fmt.Sprintf("Dear %d \n", u.ID)
 }
 
-// main  =====================================
+func (u *Player) GetID() string {
+	return fmt.Sprintf("Dear %d \n", u.PlayerID)
+}
+
+func ShowID(indentity Identity) string {
+	return fmt.Sprintf("ID %s", indentity.GetID())
+}
+
+// main  ===========================================================
 func main() {
 
-	user := &User{"omid", "hajavi", 30}
-	fmt.Println(user.FullName())
-
-	fmt.Println(Greeting(user))
+	user := &User{"omid", "hajavi", 30, 1003}
+	fmt.Println(ShowID(user))
 
 }
